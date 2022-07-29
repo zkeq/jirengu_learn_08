@@ -23,7 +23,6 @@ getJS.onclick = function() {
   xhr.send();
 }
 
-let index = 1;
 getHTML.onclick = function() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `/3.htm`);
@@ -60,3 +59,22 @@ getJSON.onclick = function() {
   xhr.send();
 }
 
+let index = 1;
+getPage.onclick = function() {
+  if (index >= 3) {
+    index = 1;
+  }
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `/page${index += 1}`);
+  xhr.onreadystatechange = () =>{
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const array = JSON.parse(xhr.responseText);
+      array.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.id
+        xxx.appendChild(li);
+      })
+    }
+  }
+  xhr.send();
+}
