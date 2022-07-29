@@ -25,7 +25,7 @@ getJS.onclick = function() {
 
 getHTML.onclick = function() {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `/3.htm`);
+  xhr.open('GET', `/3.html`);
   xhr.onload = function() {
     const div = document.createElement('div');
     div.innerHTML = xhr.responseText;
@@ -65,7 +65,7 @@ getPage.onclick = function() {
     index = 1;
   }
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `/page${index += 1}`);
+  xhr.open('GET', `/api/page${index += 1}`);
   xhr.onreadystatechange = () =>{
     if (xhr.readyState === 4 && xhr.status === 200) {
       const array = JSON.parse(xhr.responseText);
