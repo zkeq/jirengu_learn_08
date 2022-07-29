@@ -1,6 +1,7 @@
 # coding:utf-8
 # 引入fastapi
 from dataclasses import replace
+import uvicorn
 from fastapi import FastAPI, Response
 # 引入文件
 from fastapi.middleware.cors import CORSMiddleware
@@ -102,3 +103,6 @@ def index9():
 def index10():
     # 返回 data/page3.json
     return json.loads(read_file('data/page3.json'))
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="127.0.0.1", port=8000)
