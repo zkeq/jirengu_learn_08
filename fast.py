@@ -12,6 +12,15 @@ import os
 # 创建FastAPI实例
 app = FastAPI()
 
+# cors
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # 读取文件
 def read_file(file_name):
